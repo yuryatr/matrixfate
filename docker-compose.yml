@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+
+  nginx:
+    image: nginx
+    container_name: matrixfate-nginx
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+      - ./app/static:/var/www/app/static
+    ports:
+      - "127.0.0.1:8080:8080"
+
+  webapp:
+    image: workspace/matrixfate-webapp:3.12-slim-bullseye
+    container_name: matrixfate-webapp
+    build:
+      context: ./docker/python
+    restart: "no"
+    volumes:
+      - ./app:/var/www/app
+    expose:
+      - "9000"
+    command: gunicorn wsgi:application -b :9000 --worker-class aiohttp.GunicornWebWorker --reload --access-logfile -

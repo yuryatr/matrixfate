@@ -1,0 +1,29 @@
+{% extends "doc.html" %}
+{% block title %}Base{% endblock %}
+
+{% block html_attribs %} lang="en" class="h-100" data-bs-theme="auto" {%- endblock html_attribs %}
+
+{%- block metas %}{{super()}}{%- endblock metas %}
+
+{%- block navbar %}{%- endblock %}
+
+{%- block styles %}{{super()}}{%- endblock styles %}
+
+{% block body_attribs %} class="fixed-navbar" {%- endblock body_attribs %}
+
+{%- block page_wrapper %}{%- endblock %}
+
+{%- block content %}
+<!-- START PAGE CONTENT-->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Страница</h1>
+</div>
+<div class="page-content fade-in-up">
+    <div class="row">
+        <div class="col-md-6">Добро пожадовать</div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+{%- endblock %}
+
+{%- block scripts -%}{{super()}}{%- endblock scripts -%}
